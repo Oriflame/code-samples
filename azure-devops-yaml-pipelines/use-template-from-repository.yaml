@@ -1,0 +1,12 @@
+# how to use shared template from different repository
+# official documentation: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops#use-other-repositories
+
+resources:
+  repositories:
+  - repository: repository_identifier
+    type: git
+    name: project/repository_name #if in the same repo can be just name of the repository
+    ref: refs/heads/main
+
+jobs:  
+- template: relative-repo-path/pipeline-definition.yml@repository_identifier
